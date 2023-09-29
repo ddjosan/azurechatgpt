@@ -1,9 +1,7 @@
 "use client";
 import { signIn } from "next-auth/react";
-import { Avatar, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
+
 import {
-  Card,
   CardContent,
   CardDescription,
   CardHeader,
@@ -11,25 +9,48 @@ import {
 } from "../ui/card";
 
 export const LogIn = () => {
+  const containerStyle = {
+    backgroundImage: `url(/login.png)`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100vw',
+    height: '100vh',
+    display: 'flex',
+  };
+
+  const buttonLogin = {
+    backgroundColor: '#fff',
+    borderRadius: '.5rem',
+    width: 300,
+    height: 45,
+    border: 'none',
+    fontSize: '1.2em',
+    color: '#000',
+    cursor: 'pointer',
+    marginTop: 10,
+    marginRight: 'auto',
+    boxShadow: '0 2px 10px rgba(0, 0, 150, .15)'
+  }
   return (
-    <Card className="flex gap-2 flex-col min-w-[300px]">
-      <CardHeader className="gap-2">
-        <CardTitle className="text-2xl flex gap-2">
-          <Avatar className="h-8 w-8">
-            <AvatarImage src={"ai-icon.png"} />
-          </Avatar>
-          <span>
-            Azure<span className="text-muted-foreground">ChatGPT</span>
-          </span>
-        </CardTitle>
-        <CardDescription>
-          Login in with your GitHub or Microsoft 365 account
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="grid gap-4">
-        <Button onClick={() => signIn("github")}>GitHub</Button>
-        <Button onClick={() => signIn("azure-ad")}> Microsoft 365</Button>
-      </CardContent>
-    </Card>
+    <div className="flex -m-2 w-screen">
+      <div className="flex flex-col justify-center items-center w-1/2">
+        <img src='/undp-logo.png' className="w-1/5"/>
+        <CardHeader className="items-center">
+          <CardTitle className="text-2xl flex gap-2">
+            <span>
+              Azure<span className="text-muted-foreground">ChatGPT</span>
+            </span>
+          </CardTitle>
+          <CardDescription>
+            Login in with your UNDP account
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid">
+          <button onClick={() => signIn("azure-ad")} style={buttonLogin}> UNDP User</button>
+          <button onClick={() => signIn("github")} style={buttonLogin}>GitHub</button>
+        </CardContent>
+      </div>
+      <div style={containerStyle} />
+    </div>
   );
 };
