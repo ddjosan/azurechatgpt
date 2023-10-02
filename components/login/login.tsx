@@ -24,7 +24,7 @@ export const LogIn = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="grid">
-          <button onClick={() => signIn("azure-ad")} className="button-login"> UNDP User</button>
+          <button onClick={() => signIn("azure-ad")} className="button-login"> UNDP Serbia User</button>
           <button onClick={() => signIn("github")} className="button-login">GitHub</button>
         </CardContent>
       </div>
