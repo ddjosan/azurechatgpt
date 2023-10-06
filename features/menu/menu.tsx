@@ -7,7 +7,7 @@ export const MainMenu = () => {
   return (
     <div className="flex gap-3 flex-col justify-between">
       <div>
-        <Link
+        {/* <Link
           href="/"
           className="w-10 h-10 items-center justify-center flex"
           title="Home"
@@ -22,7 +22,7 @@ export const MainMenu = () => {
           title="Reporting"
         >
           <BarChartHorizontalBig />
-        </Link>
+        </Link> */}
       </div>
       <UserProfile />
     </div>
